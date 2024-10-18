@@ -175,3 +175,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0e6ed74bc8f8d5b4dbb7f9ed0288bd53, type: 3}
   - {fileID: 21300000, guid: d891551220e900948bb3cdcc57973d3e, type: 3}
   animationTime: 0
+  Particle: {fileID: 1464206543896593935, guid: adca355bb01a4624e99ade3c49b19f1f, type: 3}
