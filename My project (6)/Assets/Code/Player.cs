@@ -19,10 +19,12 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             position.x -= speed * Time.deltaTime;
+            transform.localScale = new Vector3(1.3f, 1.3f, 1.3f);
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
             position.x += speed * Time.deltaTime;
+            transform.localScale = new Vector3(-1.3f, 1.3f, 1.3f);
         }
 
         Vector3 leftEdge = Camera.main.ViewportToWorldPoint(Vector3.zero);
