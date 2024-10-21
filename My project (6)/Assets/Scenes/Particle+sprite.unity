@@ -1073,6 +1073,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laserPrefab: {fileID: 3252542173696982235, guid: e9af5cdd12745ac4aaef18a938d0d09f, type: 3}
+  Animator: {fileID: 1671716682}
 --- !u!61 &1671716678
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -8,22 +8,28 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public Laser laserPrefab;
+    public Animator Animator;
     Laser laser;
     float speed = 5f;
+    float horizontalMove = 0f; 
 
     // Update is called once per frame
     void Update()
     {
+        Animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+
         Vector3 position = transform.position;
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+        position.x += horizontalMove * Time.deltaTime;
+
+        horizontalMove = Input.GetAxisRaw("Horizontal") * speed;
+
+        if (horizontalMove < 0)
         {
-            position.x -= speed * Time.deltaTime;
             transform.localScale = new Vector3(1.3f, 1.3f, 1.3f);
         }
-        else if (Input.GetKey(KeyCode.RightArrow))
+        else if (horizontalMove > 0)
         {
-            position.x += speed * Time.deltaTime;
             transform.localScale = new Vector3(-1.3f, 1.3f, 1.3f);
         }
 
