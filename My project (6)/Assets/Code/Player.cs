@@ -32,9 +32,13 @@ public class Player : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && !Throwing)
         {
-            //StartCoroutine(ThrowDessert());
+            Animator.Play("Throw");
 
             laser = Instantiate(laserPrefab, transform.position, Quaternion.identity);
+            Moving = false;
+            Throwing = true;
+
+            Invoke("FinishThrow", Animator.GetCurrentAnimatorStateInfo(0).length-0.1f);
             
         }
 
@@ -78,7 +82,6 @@ public class Player : MonoBehaviour
     {
         Throwing = false;
         Moving = true;
-        Animator.SetBool("Throwing", false);
     }
 
     
