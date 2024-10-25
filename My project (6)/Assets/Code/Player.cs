@@ -8,7 +8,17 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Player : MonoBehaviour
 {
+
     private IEnumerator ThrowDessert;
+
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
+
     public Laser laserPrefab;
     public Animator Animator;
     Laser laser;
@@ -60,6 +70,7 @@ public class Player : MonoBehaviour
             transform.position = position;
 
 
+
             if (horizontalMove < 0)        //move left
             {
                 transform.localScale = new Vector3(1.3f, 1.3f, 1.3f);
@@ -75,6 +86,12 @@ public class Player : MonoBehaviour
             position.x = Mathf.Clamp(position.x, leftEdge.x, rightEdge.x);
  
      
+
+        if (Input.GetKeyDown(KeyCode.Space) && laser == null)
+        {
+            audioManager.PlaySFX(audioManager.PlayerThrow);
+            laser = Instantiate(laserPrefab, transform.position, Quaternion.identity);
+
         }
 
     }
@@ -90,6 +107,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Missile") || collision.gameObject.layer == LayerMask.NameToLayer("Invader"))
         {
+            audioManager.PlaySFX(audioManager.PlayerDeath);
             GameManager.Instance.OnPlayerKilled(this);
         }
     }

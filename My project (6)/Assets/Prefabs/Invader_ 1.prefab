@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -8696952453728697940}
   m_Layer: 7
   m_Name: Invader_ 1
-  m_TagString: Untagged
+  m_TagString: Invader3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -175,4 +175,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ec44a23c3bac56d41b90ab5d2bfbea0b, type: 3}
   - {fileID: 21300000, guid: 19de3e2b3f5fef848b03a259c9bdc33c, type: 3}
   animationTime: 0
+
   Particle: {fileID: 1464206543896593935, guid: adca355bb01a4624e99ade3c49b19f1f, type: 3}
+
+  hitMaterial: {fileID: 2100000, guid: f37298b01909b4f46bf0a2554cf19e76, type: 2}
+

@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Invader
+  - Laser
+  - Invader1
+  - Invader2
+  - MysteryShip
+  - Invader3
   layers:
   - Default
   - TransparentFX

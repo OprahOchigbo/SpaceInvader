@@ -10,6 +10,8 @@ using UnityEngine;
 
 public class Invader : MonoBehaviour
 {
+    AudioManager audioManager;
+
     public Sprite[] animationSprites = new Sprite[2];
     public float animationTime;
     public GameObject Particle;
@@ -20,6 +22,7 @@ public class Invader : MonoBehaviour
 
     private void Awake()
     {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         spRend = GetComponent<SpriteRenderer>();
         spRend.sprite = animationSprites[0];
     }
@@ -45,6 +48,7 @@ public class Invader : MonoBehaviour
     {
         if(collision.gameObject.layer == LayerMask.NameToLayer("Laser"))
         {
+            audioManager.PlaySFX(audioManager.Death);
             GameManager.Instance.OnInvaderKilled(this);
 
             Instantiate(Particle, collision.transform.position, Quaternion.identity);
