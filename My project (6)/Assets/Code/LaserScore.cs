@@ -15,8 +15,7 @@ public class LaserScore : MonoBehaviour
             }
 
            
-            Destroy(collision.gameObject); 
-            Destroy(gameObject); 
+            
         }
 
         if (collision.CompareTag("Invader2"))
@@ -29,8 +28,7 @@ public class LaserScore : MonoBehaviour
             }
 
 
-            Destroy(collision.gameObject);
-            Destroy(gameObject);
+            
         }
 
         if (collision.CompareTag("Invader3"))
@@ -43,8 +41,7 @@ public class LaserScore : MonoBehaviour
             }
 
 
-            Destroy(collision.gameObject);
-            Destroy(gameObject);
+          
         }
 
         if (collision.CompareTag("MysteryShip"))
@@ -57,8 +54,7 @@ public class LaserScore : MonoBehaviour
             }
 
 
-            Destroy(collision.gameObject);
-            Destroy(gameObject);
+          
         }
 
     }

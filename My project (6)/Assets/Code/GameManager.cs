@@ -65,8 +65,8 @@ public class GameManager : MonoBehaviour
 
     private void NewRound()
     {
-        invaders.ResetInvaders();
-        invaders.gameObject.SetActive(true);
+       invaders.ResetInvaders();
+       invaders.gameObject.SetActive(true);
 
         for (int i = 0; i < bunkers.Length; i++)
         {
@@ -110,7 +110,7 @@ public class GameManager : MonoBehaviour
 
     public void OnInvaderKilled(Invader invader)
     {
-        invader.gameObject.SetActive(false);
+       //invader.gameObject.SetActive(false);
 
        
 

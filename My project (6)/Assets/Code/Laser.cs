@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
 public class Laser : Projectile
@@ -26,9 +25,15 @@ public class Laser : Projectile
     {
         Bunker bunker = collision.gameObject.GetComponent<Bunker>();
 
-        if(bunker == null) //Om det inte är en bunker vi träffat så ska skottet försvinna.
+        if (bunker == null) // Om det inte är en bunker vi träffat så ska skottet försvinna.
         {
-            Destroy(gameObject);
+            Invader invader = collision.gameObject.GetComponent<Invader>();
+
+            // Only destroy the laser if it does not hit an invader (let the invader handle destruction if hit)
+            if (invader == null)
+            {
+                Destroy(gameObject); // Destroy the laser only if it's not hitting an invader
+            }
         }
     }
 }
