@@ -6,10 +6,14 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Bunker : MonoBehaviour
 {
+
+    AudioManager audioManager;
+
     int nrOfHits = 0;
     SpriteRenderer spRend;
     private void Awake()
     {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         spRend = GetComponent<SpriteRenderer>();
     }
 
@@ -18,8 +22,9 @@ public class Bunker : MonoBehaviour
        
         if (other.gameObject.layer == LayerMask.NameToLayer("Missile") || other.gameObject.layer == LayerMask.NameToLayer("Invader"))
         {
-
             //Ändrar färgen beroende på antal träffar.
+
+            audioManager.PlaySFX(audioManager.TableSFX);
             nrOfHits++;
             Color oldColor = spRend.color;
 

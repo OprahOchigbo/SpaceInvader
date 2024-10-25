@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class Invaders : MonoBehaviour
 {
+
+    AudioManager audioManager;
+
     public Invader[] prefab = new Invader[5];
 
     private int row = 5;
@@ -18,6 +21,8 @@ public class Invaders : MonoBehaviour
 
     private void Awake()
     {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+
         initialPosition = transform.position;
         CreateInvaderGrid();
     }
