@@ -14,6 +14,7 @@ public class Invader : MonoBehaviour
 
     public Sprite[] animationSprites = new Sprite[2];
     public float animationTime;
+    public GameObject Particle;
 
     SpriteRenderer spRend;
     int animationFrame;
@@ -49,11 +50,18 @@ public class Invader : MonoBehaviour
         {
             audioManager.PlaySFX(audioManager.Death);
             GameManager.Instance.OnInvaderKilled(this);
+
+            Instantiate(Particle, collision.transform.position, Quaternion.identity);
+
+            Destroy(Particle);
+
+            Destroy(collision.gameObject);
         }
         else if(collision.gameObject.layer == LayerMask.NameToLayer("Boundary")) //nått nedre kanten
         {
             GameManager.Instance.OnBoundaryReached();
         }
+        //when invader hit, laser will be destroyed on collission and have a particle effect on position
     }
 
 }

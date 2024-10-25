@@ -6,6 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Laser : Projectile
 {
+
+    public GameObject Particle; 
     private void Awake()
     {
         direction = Vector3.up;
@@ -25,7 +27,7 @@ public class Laser : Projectile
     {
         Bunker bunker = collision.gameObject.GetComponent<Bunker>();
 
-        if (bunker == null) // Om det inte är en bunker vi träffat så ska skottet försvinna.
+        if (bunker == null) // Om det inte Ã¤r en bunker vi trÃ¤ffat sÃ¥ ska skottet fÃ¶rsvinna.
         {
             Invader invader = collision.gameObject.GetComponent<Invader>();
 
@@ -35,5 +37,6 @@ public class Laser : Projectile
                 Destroy(gameObject); // Destroy the laser only if it's not hitting an invader
             }
         }
+
     }
 }

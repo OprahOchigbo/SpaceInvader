@@ -99,8 +99,6 @@ public class GameManager : MonoBehaviour
        
     }
 
-    //if missle hit player, player lose dmg
-
     public void OnPlayerKilled(Player player)
     {
 
