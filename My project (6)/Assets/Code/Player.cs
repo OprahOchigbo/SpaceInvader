@@ -7,6 +7,14 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Player : MonoBehaviour
 {
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
+
     public Laser laserPrefab;
     Laser laser;
     float speed = 5f;
@@ -35,6 +43,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && laser == null)
         {
+            audioManager.PlaySFX(audioManager.PlayerThrow);
             laser = Instantiate(laserPrefab, transform.position, Quaternion.identity);
         }
     }
@@ -43,6 +52,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Missile") || collision.gameObject.layer == LayerMask.NameToLayer("Invader"))
         {
+            audioManager.PlaySFX(audioManager.PlayerDeath);
             GameManager.Instance.OnPlayerKilled(this);
         }
     }
