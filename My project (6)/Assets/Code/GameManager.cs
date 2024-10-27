@@ -14,8 +14,8 @@ public class GameManager : MonoBehaviour
     private Bunker[] bunkers;
 
     //Används ej just nu, men ni kan använda de senare
-    public int score { get; private set; } = 0;
-    public int lives { get; private set; } = 5;
+    public int Score { get; private set; } = 0;
+    public int Lives { get; private set; } = 5;
 
     private void Awake()
     {
@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (lives <= 0 && Input.GetKeyDown(KeyCode.Return))
+        if (Lives <= 0 && Input.GetKeyDown(KeyCode.Return))
         {
             NewGame();
         }
