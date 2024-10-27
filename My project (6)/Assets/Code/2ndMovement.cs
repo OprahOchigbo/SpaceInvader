@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
 
             //audioManager.PlaySFX(audioManager.PlayerThrow);
 
-            Invoke(nameof(FinishThrow), Animator.GetCurrentAnimatorStateInfo(0).length - 0.3f);
+            Invoke(nameof(FinishThrow), Animator.GetCurrentAnimatorStateInfo(0).length - 0.1f);
             Debug.Log("Animation Length: " + Animator.GetCurrentAnimatorStateInfo(0).length);
 
 
@@ -79,7 +79,6 @@ public class Player : MonoBehaviour
     {
         Throwing = false;
         Moving = true;
-        Debug.Log("FinishThrow called");
     }
 
 
