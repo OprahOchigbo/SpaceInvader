@@ -84,8 +84,8 @@ public class Player : MonoBehaviour
             Vector3 rightEdge = Camera.main.ViewportToWorldPoint(Vector3.right);
 
             position.x = Mathf.Clamp(position.x, leftEdge.x, rightEdge.x);
- 
-     
+
+        }
 
         if (Input.GetKeyDown(KeyCode.Space) && laser == null)
         {
