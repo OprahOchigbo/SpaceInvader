@@ -7,13 +7,13 @@ using UnityEngine;
 public class Bunker : MonoBehaviour
 {
 
-    AudioManager audioManager;
+    readonly AudioManager audioManager;
 
     int nrOfHits = 0;
     SpriteRenderer spRend;
     private void Awake()
     {
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        //audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         spRend = GetComponent<SpriteRenderer>();
     }
 
