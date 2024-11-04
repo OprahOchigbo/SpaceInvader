@@ -73,14 +73,6 @@ public class Player : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && laser == null)
-        {
-            audioManager.PlaySFX(audioManager.PlayerThrow);
-            laser = Instantiate(laserPrefab, transform.position, Quaternion.identity);
-
-        }
-
-
     }
     public void FinishThrow()
     {
@@ -88,13 +80,13 @@ public class Player : MonoBehaviour
         Moving = true;
     }
 
-    /*private void Stun()
+    private void Stun()
     {
 
         Moving = false;
         Throwing = false;
 
-    }*/
+    }
 
 
     private void OnTriggerEnter2D(Collider2D collision)
