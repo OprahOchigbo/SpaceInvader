@@ -7,7 +7,6 @@ using UnityEngine;
 public class Laser : Projectile
 {
 
-    public GameObject Particle; 
     private void Awake()
     {
         direction = Vector3.up;

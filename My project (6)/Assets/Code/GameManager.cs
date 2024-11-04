@@ -12,10 +12,11 @@ public class GameManager : MonoBehaviour
     private Invaders invaders;
     private MysteryShip mysteryShip;
     private Bunker[] bunkers;
+    private bool stun = false;
 
     //Används ej just nu, men ni kan använda de senare
     public int Score { get; private set; } = 0;
-    public int Lives { get; private set; } = 5;
+    public int Lives { get; private set; } = 3;
 
     private void Awake()
     {
@@ -53,7 +54,15 @@ public class GameManager : MonoBehaviour
         {
             NewGame();
         }
+
+        if (Lives > 0 && stun)
+        {
+            
+        }
+        Debug.Log(Lives);
     }
+
+
 
     private void NewGame()
     {
@@ -61,6 +70,7 @@ public class GameManager : MonoBehaviour
         SetScore(0);
         SetLives(3);
         NewRound();
+
     }
 
     private void NewRound()
@@ -96,19 +106,20 @@ public class GameManager : MonoBehaviour
 
     private void SetLives(int lives)
     {
-       
+        Lives = lives;
     }
 
     public void OnPlayerKilled(Player player)
     {
-
-        player.gameObject.SetActive(false);
+        
+        stun = true;
+        Lives--;
 
     }
 
     public void OnInvaderKilled(Invader invader)
     {
-       //invader.gameObject.SetActive(false);
+       invader.gameObject.SetActive(false);
 
        
 

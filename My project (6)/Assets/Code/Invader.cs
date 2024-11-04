@@ -48,7 +48,7 @@ public class Invader : MonoBehaviour
     {
         if(collision.gameObject.layer == LayerMask.NameToLayer("Laser"))
         {
-            //audioManager.PlaySFX(audioManager.Death);
+            audioManager.PlaySFX(audioManager.Death);
             GameManager.Instance.OnInvaderKilled(this);
 
             Instantiate(Particle, collision.transform.position, Quaternion.identity);

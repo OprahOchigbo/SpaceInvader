@@ -6647,6 +6647,7 @@ GameObject:
   - component: {fileID: 2052220981}
   - component: {fileID: 2052220980}
   - component: {fileID: 2052220979}
+  - component: {fileID: 2052220984}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -6666,7 +6667,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5790d4d98bf3350469b46411202fc97e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserPrefab: {fileID: 8078375856387631807, guid: 2f70937b90f978a4890872f9d57d1d31, type: 3}
 --- !u!61 &2052220980
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6806,6 +6806,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2052220984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052220978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07bfb406ae065e346aca9270a04a1bf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animator: {fileID: 0}
+  laserPrefab: {fileID: 8078375856387631807, guid: 2f70937b90f978a4890872f9d57d1d31, type: 3}
 --- !u!1 &2071954044
 GameObject:
   m_ObjectHideFlags: 0

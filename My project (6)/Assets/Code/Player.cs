@@ -24,28 +24,27 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Jump") && !Throwing)
+        if (Input.GetButtonDown("Jump") && !Throwing && laser == null)
         {
-
+            
             Animator.Play("Throw");
 
             laser = Instantiate(laserPrefab, transform.position, Quaternion.identity);
+
             Moving = false;
             Throwing = true;
 
-            //audioManager.PlaySFX(audioManager.PlayerThrow);
+            audioManager.PlaySFX(audioManager.PlayerThrow);
 
-            Invoke(nameof(FinishThrow), Animator.GetCurrentAnimatorStateInfo(0).length - 0.1f);
-            Debug.Log("Animation Length: " + Animator.GetCurrentAnimatorStateInfo(0).length);
+            Invoke(nameof(FinishThrow),0.8f);
 
 
         }
-            
-        
+
+
         if (Moving)
         {
 
-      
 
             horizontalMove = Input.GetAxisRaw("Horizontal") * speed;
             Animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
@@ -69,26 +68,20 @@ public class Player : MonoBehaviour
             Vector3 rightEdge = Camera.main.ViewportToWorldPoint(Vector3.right);
 
             position.x = Mathf.Clamp(position.x, leftEdge.x, rightEdge.x);
-<<<<<<< HEAD:My project (6)/Assets/Code/Player.cs
-
         }
-
-        if (Input.GetKeyDown(KeyCode.Space) && laser == null)
-        {
-            audioManager.PlaySFX(audioManager.PlayerThrow);
-            laser = Instantiate(laserPrefab, transform.position, Quaternion.identity);
-=======
->>>>>>> 36fc68feb9a2d1278d9fd1e529992497fcfabdc4:My project (6)/Assets/Code/2ndMovement.cs
-
-        }
-
-
-
     }
     public void FinishThrow()
     {
         Throwing = false;
         Moving = true;
+    }
+
+    private void Stun()
+    {
+
+        Moving = false;
+        Throwing = false;
+
     }
 
 
