@@ -96,6 +96,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Missile") || collision.gameObject.layer == LayerMask.NameToLayer("Invader"))
         {
             GameManager.Instance.OnPlayerKilled(this);
+            audioManager.PlaySFX(audioManager.PlayerDeath);
         }
     }
 }
