@@ -3,6 +3,7 @@ using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
+    //Svante
     public TextMeshProUGUI scoreText; 
     private int score = 0;
 

@@ -7,6 +7,8 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Player : MonoBehaviour
 {
+
+    //Sofia för movement och Oprah för audio
     AudioManager audioManager;
     public Animator Animator;
     public Laser laserPrefab;
@@ -79,14 +81,14 @@ public class Player : MonoBehaviour
         Throwing = false;
         Moving = true;
     }
-
+    /*
     private void Stun()
     {
 
         Moving = false;
         Throwing = false;
 
-    }
+    }*/
 
 
     private void OnTriggerEnter2D(Collider2D collision)
