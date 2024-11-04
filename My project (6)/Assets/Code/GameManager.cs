@@ -53,11 +53,12 @@ public class GameManager : MonoBehaviour
         if (Lives <= 0 && Input.GetKeyDown(KeyCode.Return))
         {
             NewGame();
+            player.gameObject.SetActive(true);
         }
 
         if (Lives > 0 && stun)
         {
-            
+
         }
         Debug.Log(Lives);
     }

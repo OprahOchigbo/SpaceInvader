@@ -88,13 +88,13 @@ public class Player : MonoBehaviour
         Moving = true;
     }
 
-    private void Stun()
+    /*private void Stun()
     {
 
         Moving = false;
         Throwing = false;
 
-    }
+    }*/
 
 
     private void OnTriggerEnter2D(Collider2D collision)
