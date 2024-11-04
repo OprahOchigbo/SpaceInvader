@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     public Animator Animator;
     public Laser laserPrefab;
     Laser laser;
-    readonly float speed = 5f;
+    float speed = 5f;
     float horizontalMove = 0f;
     bool Throwing = false;
     bool Moving = true;
