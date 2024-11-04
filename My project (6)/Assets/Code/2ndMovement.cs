@@ -69,7 +69,7 @@ public class Player : MonoBehaviour
             Vector3 rightEdge = Camera.main.ViewportToWorldPoint(Vector3.right);
 
             position.x = Mathf.Clamp(position.x, leftEdge.x, rightEdge.x);
-<<<<<<< HEAD:My project (6)/Assets/Code/Player.cs
+
 
         }
 
@@ -77,8 +77,6 @@ public class Player : MonoBehaviour
         {
             audioManager.PlaySFX(audioManager.PlayerThrow);
             laser = Instantiate(laserPrefab, transform.position, Quaternion.identity);
-=======
->>>>>>> 36fc68feb9a2d1278d9fd1e529992497fcfabdc4:My project (6)/Assets/Code/2ndMovement.cs
 
         }
 
