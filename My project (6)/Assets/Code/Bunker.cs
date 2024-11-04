@@ -10,11 +10,18 @@ public class Bunker : MonoBehaviour
     readonly AudioManager audioManager;
 
     int nrOfHits = 0;
+    public Sprite bunk1, bunk2, bunk3, bunk4;
+    public GameObject bunk; 
     SpriteRenderer spRend;
     private void Awake()
     {
         //audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         spRend = GetComponent<SpriteRenderer>();
+    }
+
+    private void Start()
+    {
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -34,7 +41,8 @@ public class Bunker : MonoBehaviour
             
             if (nrOfHits == 4)
             {
-                gameObject.SetActive(false);
+                GetComponent<SpriteRenderer>().sprite = bunk4;
+                this.enabled = false; 
             }
             
         }

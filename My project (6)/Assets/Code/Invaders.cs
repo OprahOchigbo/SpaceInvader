@@ -42,7 +42,7 @@ public class Invaders : MonoBehaviour
 
             //för att centerar invaders
             Vector2 centerOffset = new Vector2(-width * 0.5f, -height * 0.5f);
-            Vector3 rowPosition = new Vector3(centerOffset.x, (2f * r) + centerOffset.y, 0f);
+            Vector3 rowPosition = new Vector3(centerOffset.x, (2.5f * r) + centerOffset.y, 0f);
             
             for (int c = 0; c < col; c++)
             {
