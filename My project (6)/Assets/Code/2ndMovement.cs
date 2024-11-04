@@ -24,27 +24,28 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Jump") && !Throwing && laser == null)
+        if (Input.GetButtonDown("Jump") && !Throwing)
         {
-            
+
             Animator.Play("Throw");
 
             laser = Instantiate(laserPrefab, transform.position, Quaternion.identity);
-
             Moving = false;
             Throwing = true;
 
-            audioManager.PlaySFX(audioManager.PlayerThrow);
+            //audioManager.PlaySFX(audioManager.PlayerThrow);
 
-            Invoke(nameof(FinishThrow),0.8f);
+            Invoke(nameof(FinishThrow), Animator.GetCurrentAnimatorStateInfo(0).length - 0.3f);
+            Debug.Log("Animation Length: " + Animator.GetCurrentAnimatorStateInfo(0).length);
 
 
         }
-
-
+            
+        
         if (Moving)
         {
 
+      
 
             horizontalMove = Input.GetAxisRaw("Horizontal") * speed;
             Animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
@@ -70,7 +71,6 @@ public class Player : MonoBehaviour
             position.x = Mathf.Clamp(position.x, leftEdge.x, rightEdge.x);
 
 
-
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && laser == null)
@@ -81,20 +81,14 @@ public class Player : MonoBehaviour
         }
 
 
+
     }
     public void FinishThrow()
     {
         Throwing = false;
         Moving = true;
+        Debug.Log("FinishThrow called");
     }
-
-    /*private void Stun()
-    {
-
-        Moving = false;
-        Throwing = false;
-
-    }*/
 
 
     private void OnTriggerEnter2D(Collider2D collision)
