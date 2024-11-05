@@ -9,9 +9,8 @@ public class Bunker : MonoBehaviour
 
     readonly AudioManager audioManager;
 
-    int nrOfHits = 0;
-    public Sprite bunk1, bunk2, bunk3, bunk4;
-    public GameObject bunk; 
+    public int nrOfHits = 0;
+    public Sprite[] bunkers = new Sprite[3];
     SpriteRenderer spRend;
     private void Awake()
     {
@@ -22,6 +21,22 @@ public class Bunker : MonoBehaviour
     private void Update()
     {
         Debug.Log(nrOfHits);
+
+        if (nrOfHits == 1)
+        {
+            spRend.sprite = bunkers[0];
+        }
+
+        if (nrOfHits == 2)
+        {
+            spRend.sprite = bunkers[1];
+        }
+
+        if (nrOfHits == 4)
+        {
+            spRend.sprite = bunkers[2];
+            GetComponent<BoxCollider2D>().enabled = false;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -31,20 +46,31 @@ public class Bunker : MonoBehaviour
         {
             //Ändrar färgen beroende på antal träffar.
 
-            audioManager.PlaySFX(audioManager.TableSFX);
+           // audioManager.PlaySFX(audioManager.TableSFX);
+            nrOfHits += 1;
+            /*Color oldColor = spRend.color;
+
+            Color newColor = new Color(oldColor.r +(nrOfHits*0.1f), oldColor.g + (nrOfHits * 0.1f), oldColor.b + (nrOfHits * 0.1f));
+            
+            spRend.color = newColor;*/
+
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Missile") || collision.gameObject.layer == LayerMask.NameToLayer("Invader"))
+        {
+            //Ändrar färgen beroende på antal träffar.
+
+           // audioManager.PlaySFX(audioManager.TableSFX);
             nrOfHits++;
             /*Color oldColor = spRend.color;
 
             Color newColor = new Color(oldColor.r +(nrOfHits*0.1f), oldColor.g + (nrOfHits * 0.1f), oldColor.b + (nrOfHits * 0.1f));
             
             spRend.color = newColor;*/
-            
-            if (nrOfHits == 4)
-            {
-                GetComponent<SpriteRenderer>().sprite = bunk4;
-                GetComponent<BoxCollider2D>().enabled = false; 
-            }
-            
+
         }
     }
 
