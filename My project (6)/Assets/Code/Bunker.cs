@@ -18,8 +18,9 @@ public class Bunker : MonoBehaviour
         spRend = GetComponent<SpriteRenderer>();
     }
 
-    private void Update()
+    private void Start()
     {
+<<<<<<< HEAD
         Debug.Log(nrOfHits);
 
         if (nrOfHits == 1)
@@ -37,6 +38,9 @@ public class Bunker : MonoBehaviour
             spRend.sprite = bunkers[2];
             GetComponent<BoxCollider2D>().enabled = false;
         }
+=======
+        
+>>>>>>> ec026c1ddf1e6328c229dd04b5b0abf3ec5f1059
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -65,12 +69,23 @@ public class Bunker : MonoBehaviour
 
            // audioManager.PlaySFX(audioManager.TableSFX);
             nrOfHits++;
-            /*Color oldColor = spRend.color;
+            Color oldColor = spRend.color;
 
             Color newColor = new Color(oldColor.r +(nrOfHits*0.1f), oldColor.g + (nrOfHits * 0.1f), oldColor.b + (nrOfHits * 0.1f));
             
+<<<<<<< HEAD
             spRend.color = newColor;*/
 
+=======
+            spRend.color = newColor;
+            
+            if (nrOfHits == 4)
+            {
+                GetComponent<SpriteRenderer>().sprite = bunk4;
+                this.enabled = false; 
+            }
+            
+>>>>>>> ec026c1ddf1e6328c229dd04b5b0abf3ec5f1059
         }
     }
 
